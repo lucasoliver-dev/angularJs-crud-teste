@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AngularJS CRUD</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <style media="screen">
+    font-family: 'Josefin Sans', sans-serif;
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Josefin Sans';
+    }
+
+    p, div {
+        font-family: 'Josefin Sans';
+    }
+  </style>
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>CRUD Operation (using Controller & Directives)</h1>
+    </div>
+  </div>
+  <div class="container">
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="index.html">Controller</a></li>
+    <li role="presentation" class="active"><a href="index-use-custom-directive.html">Controller & Directives</a></li>
+  </ul>
+</div>
+    <div class="container" ng-controller="CrudController">
+      <div class = "panel panel-info">
+         <div class = "panel-heading">
+            <h5 class = "panel-title">
+              Deals List
+            </h5>
+         </div>
+         <div class = "panel-body">
+           <table class="table">
+             <thead>
+               <tr>
+                 <th>_Id</th>
+                 <th>* Oferta (Necessário ao menos 5 caracteres) ({{deal.title.length}})</th>
+                 <th>* Preço Promocional</th>
+                 <th>Preço Original</th>
+                 <th>&nbsp;</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr entry-form deal-obj="deal" add-func="add()" update-func="update()" clear-func="clear()" refresh-func="refresh()" enable-update-flag="enableUpdate"></tr>
+               <tr iterate-results ng-repeat="deal in deals track by $index"></tr>
+             </tbody>
+           </table>
+          </div>
+        </div>
+      </div>
+</body>
+<script src="js/crud-directive.js" charset="utf-8"></script>
+<script src="js/crud-controller.js" charset="utf-8"></script>
+<script src="js/app.js" charset="utf-8"></script>
+</html>
